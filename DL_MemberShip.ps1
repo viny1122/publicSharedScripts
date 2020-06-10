@@ -12,7 +12,7 @@ $ExportCsvfile = "AD_SG_MemberReport$((get-date).tostring("yyyyMMddss")).csv"
 
 wh Report will be export to $ExportCsvfile
 
-wh "exporting Security groups in ISSNET Domain"
+wh "exporting Security groups  Domain"
 
 $AllGroup = Get-ADGroup -Filter 'GroupCategory -eq "Security"' -Properties ManagedBy,CanonicalName
 
@@ -126,7 +126,7 @@ Write-Debug "Sending Email.."
 
 $Attch = "C:\scripts\AD-Security-GroupsMembership-Export\Reports\$ExportCsvfile"
 
-Send-MailMessage -Body $HTML -BodyAsHtml -Encoding ([System.Text.Encoding]::UTF8) -From 'isshgunms@iss-shipping.com' -SmtpServer 'mailrelay.issnet.iss-shipping.com' -Subject 'Automated Email - AD Security Group Membership Report' -To 'Information.Security@iss-shipping.com' -Cc 'VinuLingaRaja.Dharmalingam@iss-shipping.com','bilal.hussain@iss-shipping.com' -Attachments $Attch
+Send-MailMessage -Body $HTML -BodyAsHtml -Encoding ([System.Text.Encoding]::UTF8) -From 'example@example.com' -SmtpServer 'mailrelay' -Subject 'Automated Email - AD Security Group Membership Report' -To 'example@example.com' -Cc 'example@example.com','Secondemail' -Attachments $Attch
 
 Write-Debug "Removing Old CSV Files"
 
